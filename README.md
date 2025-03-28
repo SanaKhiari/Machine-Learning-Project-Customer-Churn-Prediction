@@ -38,8 +38,6 @@ We follow the **CRISP-DM** methodology for this project:
 
 ## 📊 Results & Key Findings  
 - ✅ **Best performing model**: [Model Name] with **[Accuracy/F1-score]**  
-- 📈 **Most important features**: `[Feature 1]`, `[Feature 2]`, `[Feature 3]`  
-- 🏆 **Business Insights**: Recommendations for reducing churn based on key predictors.  
 
 ---
 
