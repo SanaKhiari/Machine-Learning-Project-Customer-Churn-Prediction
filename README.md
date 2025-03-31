@@ -17,7 +17,7 @@ The dataset consists of customer-related features such as:
 - 💰 **Billing information**: Monthly charges, total charges  
 - 🚀 **Target variable**: `Churn` (1 = Churn, 0 = Retained)  
 
-## 🚀 Project Workflow (CRISP-DM Framework)  
+## 🚀 Project Workflow (CRISP-DM )  
 We follow the **CRISP-DM** methodology for this project:  
 
 1️⃣ **Business Understanding**: Understanding churn impact on telecom companies.  
@@ -34,7 +34,7 @@ We follow the **CRISP-DM** methodology for this project:
    - **ROC-AUC**  
    - **Confusion Matrix**  
    - **Feature Importance**  
-6️⃣ **Deployment (Optional)**: Exporting the best model and serving it via an API.  
+6️⃣ **Deployment**: Exporting the best model and serving it via an API.  
 
 ## 📊 Results & Key Findings  
 - ✅ **Best performing model**: [Model Name] with **[Accuracy/F1-score]**  
