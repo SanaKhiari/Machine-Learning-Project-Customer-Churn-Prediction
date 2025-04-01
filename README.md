@@ -28,7 +28,7 @@ We follow the **CRISP-DM** methodology for this project:
    - Decision Trees  
    - Random Forest  
    - XGBoost  
-   - Support Vector Machines (SVM)  
+    
 5️⃣ **Evaluation**: Using performance metrics like:  
    - **Accuracy, Precision, Recall, F1-score**  
    - **ROC-AUC**  
@@ -37,7 +37,7 @@ We follow the **CRISP-DM** methodology for this project:
 6️⃣ **Deployment**: Exporting the best model and serving it via an API.  
 
 ## 📊 Results & Key Findings  
-- ✅ **Best performing model**: [Model Name] with **[Accuracy/F1-score]**  
+- ✅ **Best performing model**: Random Forest with **[Accuracy : 0.96]**  
 
 ---
 
