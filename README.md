@@ -33,7 +33,7 @@ We follow the **CRISP-DM** methodology for this project:
    - **Accuracy, Precision, Recall, F1-score**  
    - **ROC-AUC**  
    - **Confusion Matrix**  
-   - **Feature Importance**  
+ 
 6️⃣ **Deployment**: Exporting the best model and serving it via an API.  
 
 ## 📊 Results & Key Findings  
