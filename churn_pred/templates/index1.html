@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Churn Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        text-align: center;
+        background-color: #f4f7f6;
+      }
+
+      h1 {
+        color: #4caf50;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: inline-block;
+        text-align: left;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-size: 1em;
+        color: #333;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .result {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: green;
+        margin-top: 20px;
+      }
+
+      .error {
+        color: red;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .result,
+      .error {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .result {
+        border-left: 5px solid #4caf50;
+        color: #333;
+      }
+
+      .result h2 {
+        color: #4caf50;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .result .result-content {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #4caf50;
+      }
+
+      .error {
+        border-left: 5px solid #f44336;
+        color: #333;
+      }
+
+      .error h2 {
+        color: #f44336;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .error .error-content {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Churn Prediction</h1>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required />
+
+      <label for="international_plan">International Plan:</label>
+      <select id="international_plan" name="international_plan">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="voice_mail_plan">Voice Mail Plan:</label>
+      <select id="voice_mail_plan" name="voice_mail_plan">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="account_length">Account Length:</label>
+      <input type="number" id="account_length" name="account_length" required />
+
+      <label for="area_code">Area Code:</label>
+      <input type="number" id="area_code" name="area_code" required />
+
+      <label for="number_vmail_messages">Number of Vmail Messages:</label>
+      <input
+        type="number"
+        id="number_vmail_messages"
+        name="number_vmail_messages"
+        required
+      />
+
+      <label for="total_day_minutes">Total Day Minutes:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_day_minutes"
+        name="total_day_minutes"
+        required
+      />
+
+      <label for="total_day_calls">Total Day Calls:</label>
+      <input
+        type="number"
+        id="total_day_calls"
+        name="total_day_calls"
+        required
+      />
+
+      <label for="total_day_charge">Total Day Charge:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_day_charge"
+        name="total_day_charge"
+        required
+      />
+
+      <label for="total_eve_minutes">Total Evening Minutes:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_eve_minutes"
+        name="total_eve_minutes"
+        required
+      />
+
+      <label for="total_eve_calls">Total Evening Calls:</label>
+      <input
+        type="number"
+        id="total_eve_calls"
+        name="total_eve_calls"
+        required
+      />
+
+      <label for="total_eve_charge">Total Evening Charge:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_eve_charge"
+        name="total_eve_charge"
+        required
+      />
+
+      <label for="total_night_minutes">Total Night Minutes:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_night_minutes"
+        name="total_night_minutes"
+        required
+      />
+
+      <label for="total_night_calls">Total Night Calls:</label>
+      <input
+        type="number"
+        id="total_night_calls"
+        name="total_night_calls"
+        required
+      />
+
+      <label for="total_night_charge">Total Night Charge:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_night_charge"
+        name="total_night_charge"
+        required
+      />
+
+      <label for="total_intl_minutes">Total International Minutes:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_intl_minutes"
+        name="total_intl_minutes"
+        required
+      />
+
+      <label for="total_intl_calls">Total International Calls:</label>
+      <input
+        type="number"
+        id="total_intl_calls"
+        name="total_intl_calls"
+        required
+      />
+
+      <label for="total_intl_charge">Total International Charge:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="total_intl_charge"
+        name="total_intl_charge"
+        required
+      />
+
+      <label for="customer_service_calls">Customer Service Calls:</label>
+      <input
+        type="number"
+        id="customer_service_calls"
+        name="customer_service_calls"
+        required
+      />
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+      <h2>Prediction Result</h2>
+      <div class="result-content">
+        <p>{{ result }}</p>
+      </div>
+    </div>
+    {% endif %} {% if error %}
+    <div class="error">
+      <h2>Error</h2>
+      <div class="error-content">
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </body>
+</html>
